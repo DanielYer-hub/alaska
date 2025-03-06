@@ -1,0 +1,24 @@
+.card{
+  width: 20rem;
+  height: 30rem;
+  padding: 0;
+}
+
+.card img{
+width: 100%;
+height: 50%;
+}
+
+.card-body{
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.card-body h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-body i{
+    display: flex;
+}

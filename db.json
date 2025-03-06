@@ -1,0 +1,11 @@
+{
+    "users":[
+        {
+                "id":"1",
+                "firstName":"Daniel",
+                "lastName":"Yerema",
+                "email":"komrad.erema@yandex.com",
+                "phone":"053-4205425"
+        }
+    ]
+}

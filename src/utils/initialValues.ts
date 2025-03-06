@@ -1,0 +1,18 @@
+export const initialValues = {
+    first: "",
+    middle: "",
+    last: "",
+    phone: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    image: "",
+    alt: "",
+    state: "",
+    country: "",
+    city: "",
+    street: "",
+    houseNumber: "",
+    zip: "",
+    isBusiness: false,
+};

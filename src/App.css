@@ -1,0 +1,18 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css";
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  /* padding: 2rem;
+  text-align: center; */
+}
+
+.theme-light {
+  background-color: #f4f4f4;
+  color: #333;
+}
+.theme-dark {
+  background-color: #333;
+  color: #f4f4f4;
+}
