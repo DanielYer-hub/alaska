@@ -7,7 +7,10 @@ interface AboutProps { }
 
 const About: FunctionComponent<AboutProps> = () => {
     return (<>
-        <Navbar />
+        <Navbar onSearch={function (_term: string): void {
+            throw new Error("Function not implemented.");
+        } } />
+        <hr />
         <div className="container-about">
         <h1>About Us</h1>
         <br />

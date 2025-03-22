@@ -4,9 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import "./style/Login.css";
 import { useAuth } from "../context/AuthContext";
-import { getUserById, loginUser } from "../services/userService";
-import { saveToStorage } from "../utils/storage";
-import { jwtDecode } from "jwt-decode";
 
 interface LoginProps {}
 
@@ -34,17 +31,6 @@ onSubmit: async (values, { resetForm }) => {
   try {
     console.log("Sending login request with:", values);
     login(values.email, values.password)
-    // const res = await loginUser(values);
-    // console.log("Server response:", res.data);
-    // if (res.data) {
-    //   saveToStorage("token", res.data);
-    //   const decode = jwtDecode(res.data);
-    //   console.log("decode:", decode['_id']);
-    //   const userResponse = await getUserById(decode['_id']);
-    //   console.log("user:", userResponse);
-
-      // login(res.data.email, res.data.token);
-  
       navigate("/dashboard");
       resetForm();
     

@@ -10,8 +10,8 @@ interface CardsProps {
 }
 
 const Cards: FunctionComponent<CardsProps> = ( {searchTerm} ) => {
-  const [cards, setCards] = useState<Card[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+const [cards, setCards] = useState<Card[]>([]);
+const [isLoading, setIsLoading] = useState<boolean>(true);
 const filteredCards = cards.filter(
   (card) =>
     card.title.toLowerCase().includes(searchTerm.toLowerCase()) ||

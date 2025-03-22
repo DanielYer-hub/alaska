@@ -10,7 +10,7 @@ export function getAllCards() {
 export function postNewCard(normalizedCard: Card) {
   return axios.post(API, normalizedCard, {
     headers: {
-      "x-auth-token": sessionStorage.getItem("token"),
+      "x-auth-token": localStorage.getItem("token"),
     },
   });
 }

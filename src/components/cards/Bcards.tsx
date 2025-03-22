@@ -1,12 +1,39 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { Card } from "../../interface/card/Cards";
 import "../style/Bcards.css";
+import { saveFavoritesForUser, getFavoritesForUser } from "../../utils/storage";
+import { useAuth } from "../../context/AuthContext";
 
 interface BcardProps {
   card: Card;
 }
 
 const Bcard: FunctionComponent<BcardProps> = ({ card }) => {
+  const { user } = useAuth();
+  const [isLiked, setIsLiked] = useState(false);
+  const [favorites, setFavorites] = useState<string[]>([]);
+
+
+  useEffect(() => {
+    if (user) {
+      const userFavorites = getFavoritesForUser(user._id);
+      setFavorites(userFavorites);
+      setIsLiked(card._id ? userFavorites.includes(card._id) : false);
+    }
+  }, [user]);
+
+  const handleLike = () => {
+    let updatedFavorites: string[];
+    if (isLiked) {
+      updatedFavorites = favorites.filter(id => id !== card._id);
+    } else {
+      updatedFavorites = [...favorites, card._id!];
+    }
+    setFavorites(updatedFavorites);
+    saveFavoritesForUser(user!._id, updatedFavorites);
+    setIsLiked(!isLiked);
+  };
+
   return (
     <>
       <div className="card m-3">
@@ -35,9 +62,11 @@ const Bcard: FunctionComponent<BcardProps> = ({ card }) => {
           <a href={`tel:${card.phone}`}>
             <i className="fa-solid fa-phone"></i>
           </a>
-          <a href={`like:${card.likes}`}>
-            <i className="fa-solid fa-heart"></i>
-          </a>
+          {user && (
+          <button onClick={handleLike} className="like-button">
+          <i className={isLiked ? "fa-solid fa-heart liked" : "fa-regular fa-heart"}></i>
+        </button>
+        )}
         </div>
       </div>
     </>

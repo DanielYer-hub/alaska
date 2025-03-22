@@ -9,7 +9,7 @@ interface DashboardProps {}
 
 const Dashboard: FunctionComponent<DashboardProps> = () => {
   const { user } = useAuth();
-  const themeContext =useContext(ThemeContext) as ThemeContextType;
+  const themeContext = useContext(ThemeContext) as ThemeContextType;
   const { theme } = themeContext;
  
   const [searchTerm, setSearchTerm] = useState("");
@@ -17,6 +17,7 @@ const Dashboard: FunctionComponent<DashboardProps> = () => {
   return (
     <div className={`theme-${theme}`}> 
     <Navbar onSearch={setSearchTerm} />
+    <hr />
     <Cards searchTerm={searchTerm} />
     <Footer/> 
     </div>

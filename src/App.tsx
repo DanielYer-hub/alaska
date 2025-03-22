@@ -10,6 +10,7 @@ import { ToastContainer } from 'react-toastify';
 import CreateCard from './components/CreateCard';
 import MyCards from './components/MyCards';
 import About from './components/About';
+import FavouriteCards from './components/FavouriteCards';
 
 function App() {
 const [theme, setTheme] = useState<Theme>('light');
@@ -31,6 +32,7 @@ return (
     <Route path="/mycard" element={<MyCards/>}/>
     <Route path="*" element={<PageNotFound/>} />
     <Route path="/about" element={<About/>}/>
+    <Route path="/favourite-cards" element={<FavouriteCards/>}/>
   </Routes>
 </Router>
 </ThemeContext.Provider>
