@@ -8,19 +8,15 @@ import ColorThemeToggle from "./ColoreThemeToggle";
 interface NavbarProps {
   onSearch: (term: string) => void;
 }
-
 const Navbar: FunctionComponent<NavbarProps> = ({ onSearch }) => {
   const { user, logout } = useAuth();
   const themeContext = useContext(ThemeContext) as ThemeContextType;
   const { theme } = themeContext;
-
   const [searchTerm, setSearchTerm] = useState("");
-
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
     onSearch(event.target.value);
   };
-
   const renderSearchForm = (
     <form className="d-flex search-form" role="search">
       <input
@@ -90,7 +86,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({ onSearch }) => {
       </div>
     </nav>
   );
-
+  
   const navForBusiness = (
     <nav className="navbar navbar-expand-lg navbar-custom">
       <div className="container-fluid">
@@ -129,10 +125,8 @@ const Navbar: FunctionComponent<NavbarProps> = ({ onSearch }) => {
       </div>
     </nav>
   );
-
   return (
-    <div>{!user ? navForGuest : user.role === "user" ? navForUser : navForBusiness}</div>
+    <div>{!user ? navForGuest : user.isBusiness ? navForBusiness : navForUser}</div>
   );
 };
-
 export default Navbar;

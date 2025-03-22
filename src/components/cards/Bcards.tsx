@@ -35,6 +35,9 @@ const Bcard: FunctionComponent<BcardProps> = ({ card }) => {
           <a href={`tel:${card.phone}`}>
             <i className="fa-solid fa-phone"></i>
           </a>
+          <a href={`like:${card.likes}`}>
+            <i className="fa-solid fa-heart"></i>
+          </a>
         </div>
       </div>
     </>

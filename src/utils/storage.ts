@@ -1,6 +1,6 @@
 export const saveToStorage = (key: string, value: any, useSession = false) => {
     const storage = useSession ? sessionStorage : localStorage;
-    storage.setItem(key, JSON.stringify(value));
+    storage.setItem(key, value);
 };
 
 export const getFromStorage = (key: string, useSession = false): any => {

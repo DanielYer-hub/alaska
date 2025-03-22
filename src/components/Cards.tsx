@@ -6,21 +6,17 @@ import "./style/Cards.css";
 
 
 interface CardsProps {
-  searchTerm: string; /////
+  searchTerm: string; 
 }
 
 const Cards: FunctionComponent<CardsProps> = ( {searchTerm} ) => {
   const [cards, setCards] = useState<Card[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-
-//////////////////////////
 const filteredCards = cards.filter(
   (card) =>
     card.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     card.description.toLowerCase().includes(searchTerm.toLowerCase())
 );
-//////////////////////////
-
   useEffect(() => {
     getAllCards()
       .then((res) => {
@@ -40,23 +36,10 @@ const filteredCards = cards.filter(
           </div>
         </center>
       ) : (
-  //       <div className="row">
-  //         {cards.map((card: Card) => (
-  //           <Bcard key={String(card._id)} card={card} />
-  //         ))}
-  //       </div>
-  //     )}
-  //   </>
-  // );
-
   <div className="row">
-  {filteredCards.length > 0 ? (
-    filteredCards.map((card: Card) => (
-      <Bcard key={String(card._id)} card={card} />
-    ))
-  ) : (
-    <p>Cards not found...</p>
-  )}
+  {filteredCards.map((card) => (
+    <Bcard key={String(card._id)} card={card} />
+  ))}
 </div>
 )}
 </>
