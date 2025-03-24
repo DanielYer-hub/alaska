@@ -41,7 +41,7 @@ const CreateCard: FunctionComponent = () => {
       }}
     >
         {({ handleSubmit, isValid, dirty }) => (
-          <form className="w-100" onSubmit={handleSubmit}  style={{backgroundColor:'#f4f4f4'}}>
+          <form className="w-100" onSubmit={handleSubmit}  >
             <InputField label="Title" name="title" required />
             <InputField label="Subtitle" name="subtitle" required />
             <InputField label="Description" name="description" required />
@@ -59,7 +59,7 @@ const CreateCard: FunctionComponent = () => {
             <button
               disabled={!dirty || !isValid}
               type="submit"
-              className="btn btn-primary mt-4">
+              className="btn btn-primary m-3">
               Create Card
             </button>
           </form>

@@ -23,6 +23,7 @@ return (
 <>
 <ToastContainer />
 <ThemeContext.Provider value={{ theme, toggleTheme }}>
+<div className={`theme-${theme}`}> 
 <Router>
   <Routes>
     <Route path="/" element={<Navigate  to="/dashboard" replace />} />
@@ -35,9 +36,9 @@ return (
     <Route path="/about" element={<About/>}/>
     <Route path="/favourite-cards" element={<FavouriteCards/>}/>
     <Route path="/edit-card/:cardId" element={<EditCard />} />
-
   </Routes>
 </Router>
+</div>
 </ThemeContext.Provider>
 </>
 );

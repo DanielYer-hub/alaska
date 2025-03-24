@@ -30,7 +30,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({ onSearch }) => {
 
   return (
     <nav className={`navbar navbar-expand-lg navbar-custom theme-${theme}`}>
-      <div className="container-fluid">
+      <div className="container-fluid" >
         <Link className="navbar-brand" to="/">
           ALASKA
         </Link>

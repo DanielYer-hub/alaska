@@ -31,7 +31,6 @@ const FavouriteCards: FunctionComponent = () => {
             <Navbar onSearch={() => {}} />
             <hr />
             <div>
-                <h2>Favorite Cards</h2>
                 <div className="row">
                     {favoriteCards.length > 0 ? (
                         favoriteCards.map((card) => <Bcard key={card._id} card={card} onLikeToggle={handleLikeToggle} />)

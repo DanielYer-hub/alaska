@@ -14,5 +14,34 @@
   background-color: #333;
   color: #f4f4f4;
 }
+.theme-light.navbar {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.theme-dark.navbar {
+  background-color: #333;
+  color: #f4f4f4;
+}
+
+.theme-light .navbar .nav-link,
+.theme-light .navbar .navbar-brand {
+  color:#333 !important;
+}
+
+.theme-dark .navbar .nav-link,
+.theme-dark .navbar .navbar-brand {
+  color: #f4f4f4 !important;
+}
+
+.theme-light .footer {
+  background-color: blue;
+  color: white;
+}
+
+.theme-dark .footer {
+  background-color: darkviolet;
+  color: white;
+}
 
 

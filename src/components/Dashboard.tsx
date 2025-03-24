@@ -16,7 +16,7 @@ const Dashboard: FunctionComponent<DashboardProps> = () => {
 
   return (
     <div className={`theme-${theme}`}> 
-    <Navbar onSearch={setSearchTerm} />
+    <Navbar  onSearch={setSearchTerm} />
     <hr />
     <Cards searchTerm={searchTerm} />
     <Footer/> 
@@ -25,4 +25,3 @@ const Dashboard: FunctionComponent<DashboardProps> = () => {
 };
 
 export default Dashboard;
-

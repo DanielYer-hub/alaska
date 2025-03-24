@@ -67,11 +67,13 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
             <span>{card.bizNumber}</span>
           </li>
         </ul>
-              <div className="card-body">
+              <div className="card-body" style={{ display: "flex", justifyContent: "space-between" }}>
                 <button onClick={() => handleDelete(card._id!)} className="btn btn-danger">
-                  Delete
+                <i className="fa-solid fa-trash"></i>
                 </button>
-                <button onClick={() => navigate(`/edit-card/${card._id}`)} className="btn btn-warning">Update</button>
+                <button onClick={() => navigate(`/edit-card/${card._id}`)} className="btn btn-warning">
+                  <i className="fa-solid fa-pen"></i>
+                </button>
               </div>
             </div>
           ))}

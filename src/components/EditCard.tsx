@@ -57,7 +57,7 @@ const EditCard: FunctionComponent = () => {
           }}
         >
           {({ handleSubmit }) => (
-            <form onSubmit={handleSubmit} style={{ backgroundColor: "#f4f4f4" }}>
+            <form onSubmit={handleSubmit}>
               <InputField label="Title" name="title" required />
               <InputField label="Subtitle" name="subtitle" required />
               <InputField label="Description" name="description" required />
@@ -72,7 +72,7 @@ const EditCard: FunctionComponent = () => {
               <InputField label="Street" name="street" required />
               <InputField label="House Number" name="houseNumber" type="number" required />
               <InputField label="Zip Code" name="zip" type="number" required />
-              <button type="submit" className="btn btn-primary mt-4">
+              <button type="submit" className="btn btn-primary m-3">
                 Update Card
               </button>
             </form>

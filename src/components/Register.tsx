@@ -20,8 +20,8 @@ const Register: FunctionComponent = () => {
         <source src="/content/vecteezy_video-of-arctic-wolf-in-zoo_35139842 (online-video-cutter.com).mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <div className="container w-100 border p-6 my-1 register">
-        <div className="w-50 mx-auto py-3">
+      <div className="container w-100 border p-6  register">
+        <div className="w-50 register-form">
           <h4 className="display-4">Register</h4>
           <Formik
             initialValues={initialValues}

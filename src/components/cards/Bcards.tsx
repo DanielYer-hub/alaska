@@ -54,10 +54,7 @@ const Bcard: FunctionComponent<BcardProps> = ({ card, onLikeToggle }) => {
           <span>{card.bizNumber ?? "N/A"}</span>
         </li>
       </ul>
-      <div className="card-body">
-        <a href={`tel:${card.phone ?? ""}`}>
-          <i className="fa-solid fa-phone"></i>
-        </a>
+      <div className="card-body d-flex justify-content-between">
         {user && (
           <button onClick={handleLike} className="like-button">
             <i className={isLiked ? "fa-solid fa-heart liked" : "fa-regular fa-heart"}></i>
@@ -66,8 +63,8 @@ const Bcard: FunctionComponent<BcardProps> = ({ card, onLikeToggle }) => {
         )}
         {user?._id === card.user_id && (
           <>
-            <button onClick={() => navigate(`/edit-card/${card._id ?? ""}`)} className="btn btn-warning">Update</button>
-            <button onClick={handleDelete} className="btn btn-danger">Delete</button>
+            <button onClick={() => navigate(`/edit-card/${card._id ?? ""}`)} className="btn btn-warning"><i className="fa-solid fa-pen"></i></button>
+            <button onClick={handleDelete} className="btn btn-danger"><i className="fa-solid fa-trash"></i></button>
           </>
         )}
       </div>
@@ -75,4 +72,4 @@ const Bcard: FunctionComponent<BcardProps> = ({ card, onLikeToggle }) => {
   );
 };
 
-export default Bcard;
+export default Bcard; 

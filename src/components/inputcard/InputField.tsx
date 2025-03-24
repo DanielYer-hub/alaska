@@ -14,7 +14,7 @@ const InputField: React.FC<InputFieldProps> = ({
   required = false,
 }) => {
   return (
-    <div className="mb-3">
+    <div className="m-3">
       <label htmlFor={name} className="form-label">
         {label} {required && "*"}
       </label>
