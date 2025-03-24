@@ -20,6 +20,7 @@ export const authService = {
 
   logout() {
     removeFromStorage('token'); 
+    removeFromStorage('user');
   },
 
   getToken() {

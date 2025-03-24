@@ -9,7 +9,6 @@ interface NavbarProps {
   onSearch: (term: string) => void;
 }
 
-
 const Navbar: FunctionComponent<NavbarProps> = ({ onSearch }) => {
   const { user, logout } = useAuth();
   const themeContext = useContext(ThemeContext) as ThemeContextType;

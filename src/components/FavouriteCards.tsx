@@ -2,27 +2,29 @@ import { FunctionComponent, useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { getAllCards } from "../services/cardServices";
-import { getFavoritesForUser } from "../utils/storage";
 import { useAuth } from "../context/AuthContext";
 import Bcard from "./cards/Bcards";
 
-interface FavouriteCardsProps {}
-
-const FavouriteCards: FunctionComponent<FavouriteCardsProps> = () => {
+const FavouriteCards: FunctionComponent = () => {
     const { user } = useAuth();
     const [favoriteCards, setFavoriteCards] = useState<any[]>([]);
 
     useEffect(() => {
+        loadFavorites();
+    }, [user]);
+
+    const loadFavorites = () => {
         if (user) {
             getAllCards().then((res) => {
-                const likedIds = getFavoritesForUser(user._id); 
-                const filteredCards = res.data.filter((card: { _id: string; }) => likedIds.includes(card._id));
+                const filteredCards = res.data.filter((card: { likes: string[] }) => card.likes.includes(user._id));
                 setFavoriteCards(filteredCards);
             });
-        } else {
-            setFavoriteCards([]); 
         }
-    }, [user]);
+    };
+
+    const handleLikeToggle = (cardId: string) => {
+        setFavoriteCards((prev) => prev.filter((card) => card._id !== cardId)); 
+    };
 
     return (
         <>
@@ -32,7 +34,7 @@ const FavouriteCards: FunctionComponent<FavouriteCardsProps> = () => {
                 <h2>Favorite Cards</h2>
                 <div className="row">
                     {favoriteCards.length > 0 ? (
-                        favoriteCards.map((card) => <Bcard key={card._id} card={card} />)
+                        favoriteCards.map((card) => <Bcard key={card._id} card={card} onLikeToggle={handleLikeToggle} />)
                     ) : (
                         <p>No favorite cards yet.</p>
                     )}

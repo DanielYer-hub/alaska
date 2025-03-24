@@ -17,7 +17,7 @@ const CreateCard: FunctionComponent = () => {
   return (
     <><Navbar onSearch={function (_term: string): void {
       throw new Error("Function not implemented.");
-    } } />
+    }}/>
     <hr />
     <Formik
       initialValues={initialValues}
@@ -38,7 +38,7 @@ const CreateCard: FunctionComponent = () => {
             errorMessage(err.response.data);
           });
         resetForm();
-      } }
+      }}
     >
         {({ handleSubmit, isValid, dirty }) => (
           <form className="w-100" onSubmit={handleSubmit}  style={{backgroundColor:'#f4f4f4'}}>

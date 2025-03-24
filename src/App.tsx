@@ -11,6 +11,7 @@ import CreateCard from './components/CreateCard';
 import MyCards from './components/MyCards';
 import About from './components/About';
 import FavouriteCards from './components/FavouriteCards';
+import EditCard from './components/EditCard';
 
 function App() {
 const [theme, setTheme] = useState<Theme>('light');
@@ -33,6 +34,8 @@ return (
     <Route path="*" element={<PageNotFound/>} />
     <Route path="/about" element={<About/>}/>
     <Route path="/favourite-cards" element={<FavouriteCards/>}/>
+    <Route path="/edit-card/:cardId" element={<EditCard />} />
+
   </Routes>
 </Router>
 </ThemeContext.Provider>

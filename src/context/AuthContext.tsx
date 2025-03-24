@@ -2,7 +2,7 @@ import { createContext, useState, useContext, ReactNode, FunctionComponent} from
 import { getUserById, loginUser } from '../services/userService';
 import { clearFavoritesOnLogout, removeFromStorage, saveToStorage } from '../utils/storage';
 import { jwtDecode, JwtPayload } from 'jwt-decode';
-import { string } from 'yup';
+
 
 interface CustomJwtPayload extends JwtPayload {
   _id: string;
@@ -57,7 +57,7 @@ export const AuthProvider: FunctionComponent<{ children: ReactNode }> = ({ child
           console.log("user:", userResponse);
     
           setUser(userResponse);
-          localStorage.setItem("user", JSON.stringify(userResponse));
+          sessionStorage.setItem("user", JSON.stringify(userResponse));
       }
   } catch(e) {
     console.log("Error:", e)
@@ -65,9 +65,9 @@ export const AuthProvider: FunctionComponent<{ children: ReactNode }> = ({ child
 }
     const logout = () => {
         setUser(null);
-        removeFromStorage('user')
+        sessionStorage.removeItem('user');
         removeFromStorage('token')
-        clearFavoritesOnLogout();
+        clearFavoritesOnLogout( user!._id);
       };
       return (
         <AuthContext.Provider value={{ user, login, logout }}>

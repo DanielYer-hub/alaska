@@ -14,8 +14,6 @@ export const removeFromStorage = (key: string, useSession = false) => {
     storage.removeItem(key);
 };
 
-
-
 export const saveFavoritesForUser = (userId: string, favorites: string[]) => {
     localStorage.setItem(`favorites_${userId}`, JSON.stringify(favorites));
 };
@@ -25,6 +23,6 @@ export const getFavoritesForUser = (userId: string): string[] => {
     return data ? JSON.parse(data) : [];
 };
 
-export const clearFavoritesOnLogout = () => {
-    localStorage.removeItem("current_favorites"); 
+export const clearFavoritesOnLogout = (userId: string) => {
+    localStorage.removeItem(`favorites_${userId}`); 
 };
