@@ -5,7 +5,7 @@ interface ColorThemeToggleProps {}
  
 const ColorThemeToggle: FunctionComponent<ColorThemeToggleProps> = () => {
   const themeContext =useContext(ThemeContext) as ThemeContextType;
-  const { theme, toggleTheme } = themeContext
+  const { toggleTheme } = themeContext
     return ( <>
 <div className="form-check form-switch">
 <input

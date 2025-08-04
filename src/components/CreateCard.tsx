@@ -30,7 +30,7 @@ const CreateCard: FunctionComponent = () => {
         } as UnnormalizedCard);
 
         postNewCard(normalizedCard)
-          .then((res) => {
+          .then((_res) => {
             sucessMassage("Your card was posted successfully!");
             navigate("/");
           })

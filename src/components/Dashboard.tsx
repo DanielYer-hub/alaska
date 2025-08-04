@@ -8,7 +8,7 @@ import { useAuth } from '../context/AuthContext';
 interface DashboardProps {}
 
 const Dashboard: FunctionComponent<DashboardProps> = () => {
-  const { user } = useAuth();
+  const {}  = useAuth();
   const themeContext = useContext(ThemeContext) as ThemeContextType;
   const { theme } = themeContext;
  
